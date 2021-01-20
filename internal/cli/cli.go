@@ -8,6 +8,7 @@ import (
 	"path"
 	"sync"
 
+	"github.com/auth0/auth0-cli/internal/api"
 	"github.com/auth0/auth0-cli/internal/display"
 	"github.com/cyx/auth0/management"
 	"github.com/spf13/cobra"
@@ -29,7 +30,7 @@ type tenant struct {
 }
 
 type cli struct {
-	api      *management.Management
+	api      *api.API
 	renderer *display.Renderer
 
 	verbose bool
@@ -46,16 +47,18 @@ func (c *cli) setup() error {
 		return err
 	}
 
+	var mgmt *management.Management
 	if t.BearerToken != "" {
-		c.api, err = management.New(t.Domain,
+		mgmt, err = management.New(t.Domain,
 			management.WithStaticToken(t.BearerToken),
 			management.WithDebug(c.verbose))
 	} else {
-		c.api, err = management.New(t.Domain,
+		mgmt, err = management.New(t.Domain,
 			management.WithClientCredentials(t.ClientID, t.ClientSecret),
 			management.WithDebug(c.verbose))
 	}
 
+	c.api = api.New(mgmt)
 	return err
 }
 

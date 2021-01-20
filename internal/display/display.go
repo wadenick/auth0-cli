@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/auth0/auth0-cli/internal/ansi"
+	"github.com/cyx/auth0"
 	"github.com/cyx/auth0/management"
 	"github.com/logrusorgru/aurora"
 )
@@ -70,7 +71,7 @@ func (r *Renderer) ActionInfo(action *management.Action, versions []*management.
 
 	for _, v := range versions {
 		version := fmt.Sprintf("v%d", v.Number)
-		line := fmt.Sprintf("%-3s | %-10s | %-10s", version, v.Status, timeAgo(v.CreatedAt))
+		line := fmt.Sprintf("%-3s | %-10s | %-10s", version, v.Status, timeAgo(auth0.TimeValue(v.CreatedAt)))
 		if n := len(line); n > maxLine {
 			maxLine = n
 		}

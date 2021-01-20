@@ -1,6 +1,7 @@
 package cli
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -233,9 +234,29 @@ The deploy lifecycle is as follows:
 				Runtime:      runtime,
 			}
 
-			return ansi.Spinner("Deploying action: "+name, func() error {
-				return cli.api.ActionVersion.Deploy(action.ID, version)
+			versionCh, errCh := cli.api.DeployAction(context.Background(), action.ID, version)
+
+			var msg string
+			err = ansi.Spinner("Deploying action: "+name, func() error {
+				for {
+					select {
+					case err := <-errCh:
+						return err
+					case v, open := <-versionCh:
+						if !open || v.Status == management.VersionStatusBuilt {
+							msg = fmt.Sprintf("Deployment complete. Use `auth0 actions test %s v%d` to try it out", action.Name, version.Number)
+							return nil
+						}
+					}
+				}
 			})
+
+			if err != nil {
+				return err
+			}
+
+			cli.renderer.Infof(msg)
+			return nil
 		},
 	}
 

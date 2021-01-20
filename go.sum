@@ -28,6 +28,10 @@ github.com/cyx/auth0 v1.3.1-0.20200903063631-554acea20a54 h1:JKv8OEe2aT1FBSVe24P
 github.com/cyx/auth0 v1.3.1-0.20200903063631-554acea20a54/go.mod h1:Hi5besyGkGnnjO1hCytYLHgzWwUNmeEdlUq/w4ba63M=
 github.com/cyx/auth0 v1.3.1-0.20200908050259-71e4042405b9 h1:v1pvoRgoL8pNlgAkrDiDptkX/EFpmOa+KwHCKlJQys4=
 github.com/cyx/auth0 v1.3.1-0.20200908050259-71e4042405b9/go.mod h1:Hi5besyGkGnnjO1hCytYLHgzWwUNmeEdlUq/w4ba63M=
+github.com/cyx/auth0 v1.3.1-0.20200908171529-45c5f335bf2c h1:oHITCIclwpNFWGlTDT1jM89aQFSGxCJgVvqgYS+sI7E=
+github.com/cyx/auth0 v1.3.1-0.20200908171529-45c5f335bf2c/go.mod h1:Hi5besyGkGnnjO1hCytYLHgzWwUNmeEdlUq/w4ba63M=
+github.com/cyx/auth0 v1.3.1-0.20200911162807-c00da20b57c7 h1:1lfyjBHtoWGFZgDPpPBrJ0nGNshLyBKlA5WX2cCtlio=
+github.com/cyx/auth0 v1.3.1-0.20200911162807-c00da20b57c7/go.mod h1:Hi5besyGkGnnjO1hCytYLHgzWwUNmeEdlUq/w4ba63M=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
